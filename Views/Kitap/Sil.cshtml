@@ -1,0 +1,40 @@
+﻿@model Kitap
+
+<form method="post">
+    <input asp-for="Id" hidden/>@*Id ismini kullandigimiz için otomatik olarak asp gonderiyor ama yine de eklemek icin ya da farklı bir isim kullanilirsa bu sekilde gonderebilirsiniz.*@
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Kitap Sil</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Kitap Adı:</label>
+                            <input asp-for="KitapAdi" class="form-control" placeholder="Kitap adı girin:" />                          
+                        </div>
+
+                        <div class="form-group">
+                            <label>Kitap Yazarı:</label>
+                            <input asp-for="Yazar" class="form-control" placeholder="Kitap Yazar adı girin:" />                                                 
+                        </div>
+                        <div class="form-group">
+                            <label>Kitap Fiyatı:</label>
+                            <input asp-for="Fiyat" class="form-control" placeholder="Kitap Fiyatı girin:" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kitap Tanimi:</label>
+                            <input asp-for="Tanim" class="form-control" placeholder="Kitap Tanımı girin:" />
+                        </div>
+                       
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-primary">Kitap Türü Sil</button>
+                            <a asp-controller="Kitap" asp-action="Index" class="btn btn-secondary">Kitaplara Geri Dön</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

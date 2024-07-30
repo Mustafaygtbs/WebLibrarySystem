@@ -1,0 +1,51 @@
+﻿@model List<KitapTuru>
+
+@if (TempData["Basarili"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Basarili"]
+    </div>
+}
+@if (TempData["HataEkle"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["HataEkle"]
+    </div>
+}
+
+<div class="container mt-3">
+    <div class="row mb-3">
+        <div class="col">
+            <h3 class="display-4">Kitap Türleri</h3>
+            <p class="lead">Veritabanındaki mevcut kitap türleri listelenmektedir.</p>
+        </div>
+        <div class="col text-right align-self-center">
+            <a asp-controller="KitapTuru" asp-action="Ekle" class="btn btn-success btn-lg" type="button">Yeni Kitap Türü Ekle</a>
+        </div>
+    </div>
+
+    <table class="table table-hover table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Kitap Türü</th>
+                <th scope="col" colspan="2">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kitapTuru in Model)
+            {
+                <tr>
+                    <td>@kitapTuru.Id</td>
+                    <td>@Html.DisplayFor(modelItem => kitapTuru.Ad)</td>
+                    <td>
+                        <a asp-controller="KitapTuru" asp-action="Guncelle" asp-route-id="@kitapTuru.Id" type="button" class="btn btn-outline-primary btn-sm">Güncelle</a>
+                    </td>
+                    <td>
+                        <a asp-controller="KitapTuru" asp-action="Sil" type="button" asp-route-id="@kitapTuru.Id" class="btn btn-outline-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,73 @@
+﻿@model Kitap
+
+<form method="post" enctype="multipart/form-data">
+    <div class="container mt-5">
+         <div class="row justify-content-center">
+            <div class="col-md-6">
+                 <div class="card shadow-sm">
+                      <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">@(Model==null?"Kitap Ekle":"Kitabı Güncelle")</h4>
+                    </div>
+                         <div class="card-body">
+                    
+                               <div class="form-group">
+                                    <label>Kitap Adı:</label>
+                                   <input asp-for="KitapAdi" class="form-control" placeholder="Kitap adı girin:"/>      
+                                   <span asp-validation-for="KitapAdi" class="text-danger"></span>
+                                   @*hata mesajını span ile ekledi.*@
+                        </div>                    
+                        
+                        <div class="form-group">
+                            <label>Kitap Türü:</label>
+                            <select asp-for="KitapTuruId" asp-items="ViewBag.KitapTuruList" class="form-select" placeholder="Kitap Türünü Seçin:"></select>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Kitap Yazarı:</label>
+                            <input asp-for="Yazar" class="form-control" placeholder="Kitap Yazar adı girin:" />
+                            <span asp-validation-for="Yazar" class="text-danger"></span>
+                            @*hata mesajını span ile ekledi.*@
+                        </div>                     
+
+                        <div class="form-group">
+                            <label>Kitap Fiyatı:</label>
+                            <input asp-for="Fiyat" class="form-control" placeholder="Kitap Fiyatı girin:" />
+                            <span asp-validation-for="Fiyat" class="text-danger"></span>
+                            @*hata mesajını span ile ekledi.*@
+                        </div>
+                        <div class="form-group">
+                            <label>Kitap Tanimi:</label>
+                            <input asp-for="Tanim" class="form-control" placeholder="Kitap Tanımı girin:" />
+                            <span asp-validation-for="Tanim" class="text-danger"></span>
+                            @*hata mesajını span ile ekledi.*@
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ResimUrl" class="p-0"></label>
+                            <input type="file" name="file" class="form-control"/>                         
+                        </div>
+                               
+                               <div class="d-flex justify-content-between mt-4">
+                            @if (Model != null)
+                            {
+                                <button type="submit" class="btn btn-primary">Kitabı Güncelle</button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-primary">Kitap Ekle</button>
+                            }
+                                 <a asp-controller="Kitap" asp-action="Index" class="btn btn-secondary">Kitaplara Geri Dön</a>
+                               </div>
+                    
+                         </div>
+                    </div>
+              </div>
+         </div>
+             </div>
+</form>
+@*
+@section Scripts {
+     <partial name="_ValidationScriptsPartial"/> 
+}
+Bu kontrolleri front tarafında yapıp back e gitmeden uyarıyı veriyor.*@
