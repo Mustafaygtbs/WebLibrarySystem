@@ -5,7 +5,6 @@ using WebLibrarySystem.Models;
 
 namespace WebUygulamaProje1.Controllers
 {
-	
     public class KitapController : Controller
     {
         private readonly IKitapRepository _kitapRepository;
@@ -18,10 +17,12 @@ namespace WebUygulamaProje1.Controllers
 			_kitapTuruRepository = kitapTuruRepository;
 			_webHostEnvironment = webHostEnvironment;
 		}
+        public IActionResult Index()
+        {
+            var kitaplar = _kitapRepository.GetAll(); // Veritabanından tüm kitapları çeker
+            return View(kitaplar);
+        }
 
-
-        // Get
- 
         public IActionResult EkleGuncelle(int? id)
         {
 			IEnumerable<SelectListItem> KitapTuruList = _kitapTuruRepository.GetAll()
@@ -85,10 +86,6 @@ namespace WebUygulamaProje1.Controllers
             }
             return View();                                 
 		}
-
-
-
-        // GET ACTION
       
         public IActionResult Sil(int? id)
 		{
@@ -103,7 +100,6 @@ namespace WebUygulamaProje1.Controllers
 			}
 			return View(kitapVt);
 		}
-
 
 		[HttpPost, ActionName("Sil")]
      
