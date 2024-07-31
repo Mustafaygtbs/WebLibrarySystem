@@ -5,6 +5,7 @@ using WebLibrarySystem.Models;
 
 namespace WebUygulamaProje1.Controllers
 {
+	
     public class KitapController : Controller
     {
         private readonly IKitapRepository _kitapRepository;
@@ -16,12 +17,14 @@ namespace WebUygulamaProje1.Controllers
 			_kitapTuruRepository = kitapTuruRepository;
 			_webHostEnvironment = webHostEnvironment;
 		}
+
+        [Authorize(Roles = "Admin,Ogrenci")]
         public IActionResult Index()
         {
-           // var kitaplar = _kitapRepository.GetAll(); // Veritabanından tüm kitapları çeker
 		   List<Kitap> objKitapList = _kitapRepository.GetAll(includeProps:"KitapTuru").ToList(); // Include ile foreign key ilişkili tabloları çekiyoruz.
             return View(objKitapList);
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult EkleGuncelle(int? id)
         {
 			IEnumerable<SelectListItem> KitapTuruList = _kitapTuruRepository.GetAll()
@@ -48,7 +51,7 @@ namespace WebUygulamaProje1.Controllers
 				return View(kitapVt);
 			}			
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EkleGuncelle(Kitap kitap, IFormFile? file)
 		{
@@ -83,7 +86,7 @@ namespace WebUygulamaProje1.Controllers
             }
             return View();                                 
 		}
-      
+        [Authorize(Roles = "Admin")]
         public IActionResult Sil(int? id)
 		{
 			if (id == null || id == 0)
@@ -97,9 +100,8 @@ namespace WebUygulamaProje1.Controllers
 			}
 			return View(kitapVt);
 		}
-
-		[HttpPost, ActionName("Sil")]
-     
+        [Authorize(Roles = "Admin")]
+        [HttpPost, ActionName("Sil")]
         public IActionResult SilPOST(int? id)		
 		{
 			Kitap? kitap = _kitapRepository.Get(u => u.Id == id);

@@ -1,0 +1,61 @@
+﻿@model Kiralama
+
+<form method="post" enctype="multipart/form-data">
+
+
+    <div class="row">  
+        <div class="col-10">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-primary text-white">
+                                <h4 class="mb-0">@(Model == null ? "Yeni Kiralama" : "Kiralama Güncelle")</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="form-group">
+                                    <label>Öğrenci ID:</label>
+                                    <input asp-for="OgrenciId" class="form-control" placeholder="Öğrenci ID Giriniz:" />
+                                    <span asp-validation-for="OgrenciId" class="text-danger"></span>
+                                   
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Kitaplar:</label>
+                                    <select asp-for="KitapId" asp-items="ViewBag.KitapList" class="form-select" placeholder="Kitap Seçiniz:"></select>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-4">
+                                    @if (Model != null)
+                                    {
+                                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                                    }
+                                    else
+                                    {
+                                    <button type="submit" class="btn btn-primary">Yeni Kitap Kiralama</button>
+                                    }
+                                    <a asp-controller="Kiralama" asp-action="Index" class="btn btn-secondary">Kiralama Listesine Geri Dön</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <br /><br />
+            @if (Model != null)
+            {
+                <img src="@Model.Kitap.ResimUrl" width="100%" style="border-radius:7px; border:1px solid #bbb9b9 " class="img-fluid" />
+            }
+        </div>
+
+ 
+</form>
+@*
+@section Scripts {
+     <partial name="_ValidationScriptsPartial"/> 
+}
+Bu kontrolleri front tarafında yapıp back e gitmeden uyarıyı veriyor.*@

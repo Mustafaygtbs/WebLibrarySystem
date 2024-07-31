@@ -1,16 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using WebLibrarySystem.Models;
+
 
 namespace WebLibrarySystem.Utility
 {
-    public class ApplicationDContext : DbContext
+    // veri tabanında EF tablosu oluşması için ilgili model sınıfının buraya eklenmesi lazım.
+    public class ApplicationDContext : IdentityDbContext
     {
         // veri tabanı ile entities arasındaki kopru.
         public ApplicationDContext(DbContextOptions<ApplicationDContext> options) : base(options)
-        {
-        }
-        // class oluşturduktan sonra buraya eklemeyi unutma.
+        {}
+
         public DbSet<Models.KitapTuru> KitapTuru { get; set; }
         public DbSet<Models.Kitap> Kitaplar { get; set; }
         public DbSet<Models.Kiralama> Kiralamalar { get; set; }
-    }
+        public DbSet<Models.ApplicationUser> ApplicationUsers { get; set; }
+    
+        // class oluşturduktan sonra buraya eklemeyi unutma.
+   }
 }

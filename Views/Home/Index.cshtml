@@ -1,8 +1,36 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ana Sayfa";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>Mustafa Yiğitbaşının Online Kütüphane Projesi</h2>
+    <br />
+    <p class="text-dark">Hoşgeldiniz. Bu kütüphane uygulaması, kitaplarınızı ve ödünç aldığınız kitapları takip etmenize yardımcı olur.</p>
+    <br />
+    <p class="text-dark">Kitaplarınızı ekleyebilir, düzenleyebilir ve silebilirsiniz. Ayrıca ödünç aldığınız kitapları da ekleyebilir ve düzenleyebilirsiniz.</p>
+    <br />
+    <div class="img-container">
+        <img src="/img/Library4.jpg" class="img-fluid rounded shadow-lg" alt="Kütüphane" />
+    </div><br /><br />
 </div>
+
+<style>
+    .img-container {
+        max-width: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px; /* Alt kısım ile resim arasında boşluk */
+    }
+
+    .img-fluid {
+        width: 100%;
+        height: auto;
+    }
+
+    .text-dark {
+        color: #343a40;
+    }
+
+    footer {
+        margin-top: 20px; /* Üstteki içerik ile footer arasında boşluk */
+    }
+</style>

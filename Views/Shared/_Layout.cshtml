@@ -20,18 +20,32 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                        </li>                                   
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="KitapTuru" asp-action="Index">Kitap TÜRÜ</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Kitap" asp-action="Index">KİTAP İŞLEMLERİ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Kiralama" asp-action="Index">KİRALAMA İŞLEMLERİ</a>
+                            </li>
+                        }      
+                         @if (User.IsInRole("Ogrenci"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Kitap" asp-action="Index">KİTAPLAR</a>
+                            </li>
+                        }
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="KitapTuru" asp-action="Index">Kitap Türü</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Kitap" asp-action="Index">Kitaplar</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">İLETİŞİM</a>
                         </li>
                     </ul>
+                    <partial name="_Loginpartial" />
                 </div>
             </div>
         </nav>
@@ -44,7 +58,10 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - WebLibrarySystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Mustafa Yiğitbaşı</a>
+            &copy; 2024 - WebLibrarySystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Mustafa Yigitbasi Online Kütüphane Projesi</a>
+            <br />
+            <a href="https://github.com/Mustafaygtbs" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/mustafa-yi%C4%9Fitba%C5%9F%C4%B1/" target="_blank">LinkedIn</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

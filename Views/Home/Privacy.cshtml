@@ -1,6 +1,50 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "İletişim Bilgileri";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="contact-info">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <strong>İsim:</strong> Mustafa Yiğitbaşı
+        </li>
+        <li class="list-group-item">
+            <strong>Telefon:</strong> <a href="tel:+905303543106">0530 354 3106</a>
+        </li>
+        <li class="list-group-item">
+            <strong>E-posta:</strong> <a href="mailto:mustafaygtbs@gmail.com">mustafaygtbs@gmail.com</a>
+        </li>
+        <li class="list-group-item">
+            <strong>GitHub:</strong> <a href="https://github.com/Mustafaygtbs" target="_blank">GitHub Profili</a>
+        </li>
+        <li class="list-group-item">
+            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mustafa-yi%C4%9Fitba%C5%9F%C4%B1/" target="_blank">LinkedIn Profili</a>
+        </li>
+        <li class="list-group-item">
+            <strong>Üniversite:</strong> Kocaeli Üniversitesi 
+        </li><li class="list-group-item">
+            <strong>Bölüm:</strong> Bilgisayar Mühendisliği
+        </li>
+    </ul>
+</div>
+
+<style>
+    .contact-info {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .list-group-item {
+        font-size: 1.1rem;
+    }
+
+        .list-group-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .list-group-item a:hover {
+                text-decoration: underline;
+            }
+</style>

@@ -6,6 +6,7 @@ using WebLibrarySystem.Models;
 
 namespace WebUygulamaProje1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class KitapTuruController : Controller
     {
         private IKitapTuruRepository _kitapTuruRepository;

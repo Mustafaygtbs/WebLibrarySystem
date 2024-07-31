@@ -2,11 +2,11 @@
 
 namespace WebLibrarySystem.Models
 {
-    public class KiralamaRpository : Repository<Kiralama>, IKiralamaRepository
+    public class KiralamaRepository : Repository<Kiralama>, IKiralamaRepository
     {
         private ApplicationDContext _uygulamaDbContext;
         // dependent injection yapılıyor.
-        public KiralamaRpository(ApplicationDContext applicationDContext) : base(applicationDContext)
+        public KiralamaRepository(ApplicationDContext applicationDContext) : base(applicationDContext)
         {
             _uygulamaDbContext = applicationDContext;
         }

@@ -1,0 +1,31 @@
+﻿@model Kiralama
+
+<form method="post">
+    <input asp-for="Id" hidden/>@*Id ismini kullandigimiz için otomatik olarak asp gonderiyor ama yine de eklemek icin ya da farklı bir isim kullanilirsa bu sekilde gonderebilirsiniz.*@
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Kiralama Kaydı Sil</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label>Öğrenci ID:</label>
+                            <input asp-for="OgrenciId" disabled class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kitaplar:</label>
+                            <select asp-for="KitapId" disabled asp-items="ViewBag.KitapList" class="form-select" placeholder="Kitap Seçiniz:"></select>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-primary">Kiralama Kaydı Sil</button>
+                            <a asp-controller="Kiralama" asp-action="Index" class="btn btn-secondary">Kiralama Kayıtlarına Geri Dön</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
