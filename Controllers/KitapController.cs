@@ -10,7 +10,6 @@ namespace WebUygulamaProje1.Controllers
         private readonly IKitapRepository _kitapRepository;
 		private readonly IKitapTuruRepository _kitapTuruRepository;
 		public readonly IWebHostEnvironment _webHostEnvironment;
-
 		public KitapController(IKitapRepository kitapRepository, IKitapTuruRepository kitapTuruRepository, IWebHostEnvironment webHostEnvironment)
 		{
 			_kitapRepository = kitapRepository;
@@ -19,10 +18,10 @@ namespace WebUygulamaProje1.Controllers
 		}
         public IActionResult Index()
         {
-            var kitaplar = _kitapRepository.GetAll(); // Veritabanından tüm kitapları çeker
-            return View(kitaplar);
+           // var kitaplar = _kitapRepository.GetAll(); // Veritabanından tüm kitapları çeker
+		   List<Kitap> objKitapList = _kitapRepository.GetAll(includeProps:"KitapTuru").ToList(); // Include ile foreign key ilişkili tabloları çekiyoruz.
+            return View(objKitapList);
         }
-
         public IActionResult EkleGuncelle(int? id)
         {
 			IEnumerable<SelectListItem> KitapTuruList = _kitapTuruRepository.GetAll()
@@ -47,8 +46,7 @@ namespace WebUygulamaProje1.Controllers
 					return NotFound();
 				}
 				return View(kitapVt);
-			}
-			
+			}			
         }
 
         [HttpPost]
@@ -68,8 +66,7 @@ namespace WebUygulamaProje1.Controllers
 						file.CopyTo(fileStream);
 					}
 					kitap.ResimUrl = @"\img\" + file.FileName;
-				}				
-								
+				}
 				if (kitap.Id == 0)
 				{
 					_kitapRepository.Ekle(kitap);
@@ -79,7 +76,7 @@ namespace WebUygulamaProje1.Controllers
 				{
 					_kitapRepository.Guncelle(kitap);
 					TempData["basarili"] = "Kitap güncelleme başarılı!";
-				}
+				}											
 				
 				_kitapRepository.Kaydet(); // SaveChanges() yapmazsanız bilgiler veri tabanına eklenmez!			
                 return RedirectToAction("Index", "Kitap");

@@ -45,7 +45,7 @@
                     <td>@Html.DisplayFor(modelItem => kitap.Yazar)</td>
                     <td>@Html.DisplayFor(modelItem => kitap.Fiyat)</td>
                     <td>@Html.DisplayFor(modelItem => kitap.Tanim)</td>
-                    <td></td>
+                    <td>@kitap.KitapTuru.Ad</td>
                     <td>
                         <a asp-controller="Kitap" asp-action="EkleGuncelle" asp-route-id="@kitap.Id" type="button" class="btn btn-outline-primary btn-sm">Güncelle</a>
                     </td>

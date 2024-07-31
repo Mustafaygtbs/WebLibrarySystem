@@ -11,5 +11,6 @@ namespace WebLibrarySystem.Utility
         // class oluşturduktan sonra buraya eklemeyi unutma.
         public DbSet<Models.KitapTuru> KitapTuru { get; set; }
         public DbSet<Models.Kitap> Kitaplar { get; set; }
+        public DbSet<Models.Kiralama> Kiralamalar { get; set; }
     }
 }

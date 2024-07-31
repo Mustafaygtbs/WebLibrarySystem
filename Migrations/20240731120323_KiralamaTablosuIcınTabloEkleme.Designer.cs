@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebLibrarySystem.Utility;
 
@@ -10,9 +11,11 @@ using WebLibrarySystem.Utility;
 namespace WebLibrarySystem.Migrations
 {
     [DbContext(typeof(ApplicationDContext))]
-    partial class ApplicationDContextModelSnapshot : ModelSnapshot
+    [Migration("20240731120323_KiralamaTablosuIcınTabloEkleme")]
+    partial class KiralamaTablosuIcınTabloEkleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -9,24 +9,19 @@ namespace WebUygulamaProje1.Controllers
     public class KitapTuruController : Controller
     {
         private IKitapTuruRepository _kitapTuruRepository;
-
         public KitapTuruController(IKitapTuruRepository context)
         {
 			_kitapTuruRepository = context;
         }
-
         public IActionResult Index()
         {
             List<KitapTuru> objKitapTuruList = _kitapTuruRepository.GetAll().ToList();
             return View(objKitapTuruList);
-        }
-       
+        }      
         public IActionResult Ekle()
         {
             return View();
-        }
-
-       
+        }    
         [HttpPost]
 		public IActionResult Ekle(KitapTuru kitapTuru)
 		{
@@ -39,9 +34,6 @@ namespace WebUygulamaProje1.Controllers
             }
             return View();                                 
 		}
-
-
-
 		public IActionResult Guncelle(int? id)
 		{
             if(id==null || id==0)
@@ -55,7 +47,6 @@ namespace WebUygulamaProje1.Controllers
             }
 			return View(kitapTuruVt);
 		}
-
 		[HttpPost]
 		public IActionResult Guncelle(KitapTuru kitapTuru)
 		{
@@ -68,8 +59,6 @@ namespace WebUygulamaProje1.Controllers
 			}
 			return View();
 		}
-
-
 		// GET ACTION
 		public IActionResult Sil(int? id)
 		{
@@ -84,8 +73,6 @@ namespace WebUygulamaProje1.Controllers
 			}
 			return View(kitapTuruVt);
 		}
-
-
 		[HttpPost, ActionName("Sil")]
 		public IActionResult SilPOST(int? id)		
 		{
