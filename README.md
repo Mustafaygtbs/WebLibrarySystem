@@ -52,3 +52,7 @@ The database includes the following main tables:
 - **Books:** Stores detailed information about the books.
 - **Borrowing Transactions:** Tracks borrowed books and their return dates.
 - **Categories:** Lists the categories to which books belong.
+
+
+https://github.com/user-attachments/assets/18c8bb48-33e0-45b1-92ca-3586cc899b2f
+
